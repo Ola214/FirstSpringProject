@@ -1,0 +1,57 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+<!--6default-init-method="init"
+default-destroy-method="destroy"--> <!--po to by nie pisac w kazdym beanie init-method="init" itd.-->
+
+    <!-- 1.<bean id="restaurantBean" class="com.ola.firstspringproject.Restaurant">
+        <property name="welcomeNote" value="Welcome to our Restaurant"/>
+    </bean>-->
+    
+    <!-- 2.<bean id="restaurantBean" class="com.ola.firstspringproject.Restaurant">
+        <constructor-arg ref="teaBean"/>
+    </bean>-->
+    <!-- 3.<bean id="restaurantBean" class="com.ola.firstspringproject.Restaurant">
+        <property name="hotDrink" ref="teaBean"/>
+    </bean>-->
+    <!--4.<bean id="restaurantBean" class="com.ola.firstspringproject.Restaurant">
+        <property name="restaurantWaitersList">
+            <list>
+                <value>Mr. ABC</value>
+                <value>Mr. BCD</value>
+                <value>Mr. DEF</value>
+                <value>Mr. DEF</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="teaBean" class="com.ola.firstspringproject.Tea"></bean>-->
+    
+    <!--5<bean id="restaurantBean" class="com.ola.firstspringproject.Restaurant" scope="singleton" lazy-init="true"></bean>--> <!--jezeli lazy-init="false" to jest inicjaliozowana na poczatku, a nie jak jest potrzebna-->
+    <!--8<bean id="restaurantBean" class="com.ola.firstspringproject.Restaurant"></bean>-->
+    
+    <!--7.<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>--><!--potrzebne do @PostConstruct i @PreDestroy-->
+    <!--9.<bean id="restaurantBean" class="com.ola.firstspringproject.Restaurant" init-method="init" destroy-method="destroy"></bean>
+    <bean class="com.ola.firstspringproject.DemoBeanPostProcessor"></bean>
+    <bean class="com.ola.firstspringproject.DemoBeanPostProcessor2"></bean>-->
+    
+    <!--10.<bean id="restaurantBean" class="com.ola.firstspringproject.Restaurant">
+        <property name="welcomeNote" value="Hi and welcome to our restaurant"></property>
+    </bean>
+    
+    <bean class="com.ola.firstspringproject.DemoBeanFactoryPostProcessor"></bean>-->
+    
+    <bean id="restaurantBean" class="com.ola.firstspringproject.Restaurant">
+        <property name="welcomeNote" value="${welcomeNote}"></property>
+    </bean>
+    
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <value>classpath:spring.properties</value>
+        </property>
+    </bean>
+    
+</beans>
+
+
